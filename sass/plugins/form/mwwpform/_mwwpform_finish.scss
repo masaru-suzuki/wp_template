@@ -1,0 +1,30 @@
+.contact-finish-page {
+  .btn-round {
+    margin: 0 auto 64px;
+  }
+}
+
+/*==================================================
+ message-box
+==================================================*/
+.message-box {
+  max-width: 800px;
+  width: 100%;
+  background-color: $whitegray;
+  margin: 64px auto;
+  padding: 32px;
+  .facility-box {
+    background-color: $white;
+    margin-top: 32px;
+    &__link {
+      color: $black;
+      border: none;
+    }
+  }
+  .thanks-page-txt {
+    text-align: center;
+    @include mq-down(sm) {
+      text-align: left;
+    }
+  }
+}

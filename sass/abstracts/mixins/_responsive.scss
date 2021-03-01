@@ -1,0 +1,85 @@
+$breakpoint-up: (
+  "sm": "screen and (min-width: 415px)",
+  "md": "screen and (min-width: 769px)",
+  //ipad非適用
+  "lg": "screen and (min-width: 1000px)",
+  "xl": "screen and (min-width: 1280px)",
+  "custom600": "screen and (min-width: 601px)",
+  "custom02": "screen and (min-width: 1304px)",
+) !default;
+
+// max-width
+$breakpoint-down: (
+  "sm": "screen and (max-width: 414px)",
+  "md": "screen and (max-width: 768px)",
+  //ipad適用
+  "lg": "screen and (max-width: 999px)",
+  "xl": "screen and (max-width: 1279px)",
+  "custom600": "screen and (max-width: 600px)",
+  "custom02": "screen and (max-width: 1304px)",
+) !default;
+
+// @mixinの定義
+@mixin mq-up($breakpoint: lg) {
+  @media #{map-get($breakpoint-up, $breakpoint)} {
+    @content;
+  }
+}
+
+@mixin mq-down($breakpoint: lg) {
+  @media #{map-get($breakpoint-down, $breakpoint)} {
+    @content;
+  }
+}
+
+/*====================================================
+メディアクエリ
+====================================================*/
+
+/*
+pc: PC画面のみ映す
+md: md画面のみ映す
+sp: sp画面のみ映す
+pc-none: sp画面からmd画面のみ映す = pc画面はうつさない
+md-none: sp画面からpc画面のみ映す = md画面はうつさない
+sp-none: md画面とpc画面のみ映す = sp画面はうつさない
+*/
+
+@include mq-up {
+  .pc,
+  .md-none,
+  .sp-none {
+    display: block !important;
+  }
+  .md,
+  .sp,
+  .pc-none {
+    display: none !important;
+  }
+}
+@include mq-down {
+  @include mq-up(sm) {
+    .md,
+    .pc-none,
+    .sp-none {
+      display: block !important;
+    }
+    .pc,
+    .sp,
+    .md-none {
+      display: none !important;
+    }
+  }
+}
+@include mq-down(sm) {
+  .sp,
+  .pc-none,
+  .md-none {
+    display: block !important;
+  }
+  .pc,
+  .md,
+  .sp-none {
+    display: none !important;
+  }
+}

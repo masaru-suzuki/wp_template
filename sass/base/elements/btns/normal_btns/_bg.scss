@@ -1,0 +1,99 @@
+$bgcolor: $blue;
+$btn_width: 1280px;
+$btn_height: 200px;
+$md_btn_height: 124px;
+$sp_btn_height: 96px;
+$effect_transition: 0.3s;
+//bgのイメージが決まったら、bg positionを変更する
+
+.btn-bg {
+  display: block;
+  max-width: $btn_width;
+  width: 100%;
+  height: $btn_height;
+  line-height: $btn_height;
+  margin: 0 auto 128px;
+  cursor: pointer;
+  position: relative;
+  transition: $effect_transition;
+  z-index: 0;
+
+  @include mq-down {
+    height: $md_btn_height;
+    line-height: $md_btn_height;
+  }
+  @include mq-down(sm) {
+    height: $sp_btn_height;
+    line-height: $sp_btn_height;
+  }
+  &::before {
+    content: "";
+    display: inline-block;
+    width: 10px;
+    height: 26px;
+    background-image: url(images/next.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    vertical-align: middle;
+    position: absolute;
+    right: 154px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: $effect_transition;
+    @include mq-down(sm) {
+      height: 14px;
+      right: 64px;
+    }
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    display: block;
+    width: $btn_width;
+    height: $btn_height;
+    background-image: url(images/btn_bg.jpg);
+    background-size: 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    z-index: -1;
+    transition: $effect_transition;
+    @include mq-down {
+      height: $md_btn_height;
+      filter: brightness(0.5);
+    }
+    @include mq-down(sm) {
+      height: $sp_btn_height;
+    }
+  }
+  &:hover {
+    transition: $effect_transition;
+    background-size: 110%;
+    &::before {
+      transition: $effect_transition;
+      right: 120px;
+    }
+    &::after {
+      filter: blur(2px) brightness(0.5);
+      background-size: 110%;
+      transition: $effect_transition;
+    }
+  }
+  &:active {
+    transition: $effect_transition;
+    top: 2px;
+    @include mq-down {
+      top: 0;
+    }
+    &::before {
+      transition: $effect_transition;
+      right: 56px;
+    }
+    &::after {
+      transition: $effect_transition;
+      @include mq-down {
+        filter: blur(2px) brightness(0.3);
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+.action_btn {
+  position: fixed;
+  bottom: 16px;
+  right: 10px;
+  z-index: 1;
+  .telephone {
+    display: block;
+    width: 48px;
+    height: 48px;
+    // color: $white;
+    background: $blue;
+    padding: 13px;
+    border-radius: 100%;
+    margin-bottom: 8px;
+  }
+  .mail {
+    display: block;
+    width: 48px;
+    height: 48px;
+    // color: $white;
+    background: $blue;
+    padding: 16px 13px;
+    border-radius: 100%;
+  }
+}

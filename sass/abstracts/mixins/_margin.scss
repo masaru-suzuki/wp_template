@@ -1,0 +1,15 @@
+@mixin mb1 {
+  margin-bottom: 16px;
+}
+@mixin mb2 {
+  margin-bottom: 32px;
+}
+@mixin mb3 {
+  margin-bottom: 64px;
+}
+@mixin mb4 {
+  margin-bottom: 128px;
+}
+@mixin mb5 {
+  margin-bottom: 256px;
+}

@@ -1,0 +1,89 @@
+.action_btn {
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
+  width: 100vw;
+  height: 50px;
+  background-color: $black;
+  display: flex;
+  text-align: center;
+  line-height: 50px;
+  border-top: 0.1px solid rgba($color: $white, $alpha: 0.3);
+  z-index: 999;
+  @include mq-up {
+    display: none;
+  }
+  &__left,
+  &__right {
+    transition: 0.3s;
+    width: 50vw;
+    a {
+      position: relative;
+      padding-left: 30px;
+      &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 7px;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+
+        background-size: contain;
+        background-repeat: no-repeat;
+        @include mq-down(sm) {
+          left: 3px;
+        }
+      }
+    }
+    &:active {
+      background-color: #fff;
+      color: $black;
+      transition: 0.3s;
+    }
+  }
+  &__left {
+    border-right: 0.1px solid rgba($color: $white, $alpha: 0.3);
+    a {
+      &::before {
+        width: 15px;
+        height: 15px;
+        background-image: url(images/tel.png);
+        transition: 0.3s;
+      }
+      &:active {
+        &::before {
+          background-image: url(images/tel_b.png);
+          transition: 0.3s;
+        }
+      }
+    }
+  }
+  &__right {
+    a {
+      &::before {
+        height: 20px;
+        width: 20px;
+        background-image: url(images/phone.png);
+      }
+    }
+  }
+  .tel {
+    display: block;
+    width: 48px;
+    height: 48px;
+    // color: $white;
+    background: $blue;
+    padding: 13px;
+    border-radius: 100%;
+    margin-bottom: 8px;
+  }
+  .mail {
+    display: block;
+    width: 48px;
+    height: 48px;
+    // color: $white;
+    background: $blue;
+    padding: 16px 13px;
+    border-radius: 100%;
+  }
+}

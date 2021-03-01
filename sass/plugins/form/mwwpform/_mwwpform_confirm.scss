@@ -1,0 +1,59 @@
+.contact-confirm-page {
+}
+
+/*==================================================
+ confirm-section
+==================================================*/
+.mw_wp_form_confirm {
+  .haveto,
+  br {
+    display: none;
+  }
+  .contact-form {
+    max-width: 900px;
+    width: 100%;
+    padding: 0 16px;
+    margin: 0 auto 56px;
+    @include mq-down {
+      max-width: 500px;
+    }
+    .form-item {
+      width: 100%;
+      display: flex;
+      margin-bottom: 24px;
+      flex-direction: column;
+      background-color: $whitegray;
+      line-height: 36px;
+      label {
+        margin-right: 32px;
+        width: 100%;
+        text-align: left;
+        background: $white;
+        @include mq-down {
+        }
+      }
+      input,
+      textarea {
+        width: 100%;
+        @include mq-down {
+        }
+      }
+    }
+    p {
+      display: none;
+    }
+  }
+  .btn-box {
+    position: unset;
+    margin: 0 auto;
+    max-width: 900px;
+    flex-flow: row-reverse;
+    justify-content: space-between;
+    @include mq-down {
+      max-width: 500px;
+    }
+    @include mq-down(sm) {
+      padding: 0 16px;
+    }
+  }
+}

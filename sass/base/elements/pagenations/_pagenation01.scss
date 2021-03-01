@@ -1,0 +1,105 @@
+.page-nation01 {
+  max-width: 1100px; //news-listと揃える
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transition: 0.3s;
+
+  .return-area,
+  .move-area {
+    max-width: 240px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    @include mq-down(sm) {
+      max-width: 112px;
+    }
+    .page-nation-link {
+      position: relative;
+      &:hover {
+        color: rgba($color: $black, $alpha: 1);
+        transition: 0.3s;
+      }
+      &::before {
+        position: absolute;
+        top: 0px;
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        font-size: 20px;
+        @include mq-down(sm) {
+          font-size: 10px;
+        }
+      }
+      &.return-first {
+        &::before {
+          content: "\f100";
+        }
+        &.empty {
+          &::before {
+            content: "";
+          }
+        }
+      }
+      &.prev {
+        &::before {
+          content: "\f104";
+        }
+        &.empty {
+          &::before {
+            content: "";
+          }
+        }
+      }
+    }
+  }
+
+  .return-area {
+    .page-nation-link {
+      padding-left: 48px;
+      @include mq-down(sm) {
+        padding-left: 24px;
+      }
+      &::before {
+        left: 20px;
+        @include mq-down(sm) {
+          left: 12px;
+        }
+      }
+    }
+  }
+
+  .move-area {
+    .page-nation-link {
+      padding-right: 48px;
+      @include mq-down(sm) {
+        padding-right: 24px;
+      }
+      &::before {
+        right: 20px;
+        @include mq-down(sm) {
+          right: 12px;
+        }
+      }
+      &.move-next {
+        &::before {
+          content: "\f105";
+        }
+        &.empty {
+          &::before {
+            content: "";
+          }
+        }
+      }
+      &.move-last {
+        &::before {
+          content: "\f101";
+        }
+        &.empty {
+          &::before {
+            content: "";
+          }
+        }
+      }
+    }
+  }
+}

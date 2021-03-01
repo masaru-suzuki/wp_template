@@ -1,0 +1,37 @@
+.breadcrumb {
+  li {
+    position: relative;
+    display: inline-block; /*横に並ぶように*/
+    list-style: none;
+    font-weight: normal; /*太字*/
+    margin-right: 8px;
+    &:first-child {
+      &::after {
+        /*三角の部分*/
+        content: ">";
+        position: absolute;
+        color: $whiteblue;
+        right: -17px;
+        @include mq-down {
+          top: 6px;
+        }
+        @include mq-down(sm) {
+          top: 0;
+        }
+      }
+    }
+  }
+  a {
+    display: inline-block;
+    padding: 0 3px 0 7px;
+    height: 28px;
+    line-height: 28px;
+    color: $whiteblue;
+    font-size: 13px;
+    transition: 0.3s;
+    &:hover {
+      color: $black;
+      transition: 0.3s;
+    }
+  }
+}

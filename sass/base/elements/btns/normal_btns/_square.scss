@@ -1,0 +1,62 @@
+$bgcolor: $blue;
+$txt_color: $blue;
+$hover_bgcolor: $grayblue;
+$hover_txtcolor: $white;
+//幅はpadding で調整
+
+.btn-square {
+  text-align: center;
+  display: block;
+  cursor: pointer;
+  position: relative;
+  border: 1px solid $bgcolor;
+  margin-right: 8px;
+  padding: 14px 48px 12px 25px;
+  white-space: nowrap;
+  @include mq-down {
+    padding: 10px 36px 8px 16px;
+  }
+  @include mq-down(sm) {
+  }
+  //font
+  font-size: 13px;
+  line-height: 13px;
+  text-align: center;
+  color: $txt_color;
+  transition: 0.3s;
+
+  @include mq-down() {
+    font-size: 15px;
+    line-height: 15px;
+    letter-spacing: 3px;
+  }
+  @include mq-down(sm) {
+    font-size: 13px;
+    letter-spacing: 2px;
+  }
+
+  &::before {
+    position: absolute;
+    right: 10%;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    font-size: 12px;
+    content: "\f054";
+    transition: 0.3s;
+  }
+  &:hover {
+    background-color: $hover_bgcolor;
+    color: $hover_txtcolor;
+    border-color: $hover_bgcolor;
+    transition: 0.3s;
+    &::before {
+      color: $white;
+      transition: 0.3s;
+      right: 5%;
+    }
+  }
+  &:active {
+    transition: 0.3s;
+    top: 2px;
+  }
+}

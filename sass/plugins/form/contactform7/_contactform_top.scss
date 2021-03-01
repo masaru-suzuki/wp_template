@@ -1,0 +1,135 @@
+.lower_main_visual {
+  @include wf;
+  @include mb3;
+  height: 40vh; /* 全画面表示 */
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  background-image: url(/cmn/img/pc/mv.png);
+  .inner {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    max-width: 1096px;
+    align-items: center;
+    margin: auto;
+    padding: 0 3%;
+    .lower_page_ttl {
+      margin: 0 auto;
+    }
+  }
+}
+
+/*Contact Form 7カスタマイズ*/
+/*スマホContact Form 7カスタマイズ*/
+
+/*form全体*/
+.wpcf7 {
+  @include w2;
+  padding: 3%;
+
+  .inquiry {
+    width: 100%;
+    margin: 0 auto;
+    @include mq-down(sm) {
+      width: 100%;
+    }
+  }
+  .screen-reader-response {
+    ul {
+      display: none;
+    }
+  }
+  .wpcf7-list-item {
+    padding-right: 5px;
+  }
+}
+
+@media (max-width: 500px) {
+  .inquiry th,
+  .inquiry td {
+    display: block !important;
+    width: 100% !important;
+    border-top: none !important;
+    -webkit-box-sizing: border-box !important;
+    -moz-box-sizing: border-box !important;
+    box-sizing: border-box !important;
+  }
+  .inquiry tr:first-child th {
+    border-top: 1px solid rgba($color: $whitegray, $alpha: 0.5) !important;
+  }
+  /* 必須・任意のサイズ調整 */
+  .inquiry .haveto,
+  .inquiry .any {
+    font-size: 10px;
+  }
+}
+/*見出し欄*/
+.inquiry th {
+  text-align: left;
+  font-size: 14px;
+  padding: 5px;
+  width: 30%;
+  border: solid 1px rgba($color: $whitegray, $alpha: 0.5);
+}
+/*通常欄*/
+.inquiry td {
+  font-size: 13px;
+  border: solid 1px rgba($color: $whitegray, $alpha: 0.5);
+  padding: 5px;
+  span {
+    display: flex;
+    flex-direction: column;
+  }
+}
+/*横の行とテーブル全体*/
+.entry-content .inquiry tr,
+.entry-content table {
+  border: solid 1px rgba($color: $whitegray, $alpha: 0.5);
+}
+/*必須の調整*/
+.haveto {
+  font-size: 7px;
+  padding: 5px;
+  background: #ff9393;
+  color: $white;
+  border-radius: 2px;
+  margin-right: 5px;
+  position: relative;
+  bottom: 1px;
+}
+/*任意の調整*/
+.any {
+  font-size: 7px;
+  padding: 5px;
+  background: #93c9ff;
+  color: $white;
+  border-radius: 2px;
+  margin-right: 5px;
+  position: relative;
+  bottom: 1px;
+}
+/*ラジオボタンを縦並び指定*/
+.verticallist .wpcf7-list-item {
+  display: block;
+}
+/*送信ボタンのデザイン変更*/
+#formbtn {
+  display: block;
+  padding: 1em 0;
+  margin-top: 30px;
+  width: 100%;
+  background: $turquoise;
+  color: $white;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 2px;
+  border: none;
+  text-align: center;
+  transition: 0.5s linear;
+}
+/*送信ボタンマウスホバー時*/
+#formbtn:hover {
+  background: $blue;
+  transition: 0.5s linear;
+}

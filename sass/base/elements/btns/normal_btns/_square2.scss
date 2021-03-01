@@ -1,0 +1,43 @@
+$bgcolor: $whiteblue;
+$txt_color: $white;
+$hover_bgcolor: $grayblue;
+$btn_width: 312px;
+$btn_heght: 64px;
+
+.btn {
+  text-align: center;
+  display: inline-block;
+  height: $btn_heght;
+  width: $btn_width;
+  cursor: pointer;
+  position: relative;
+  background-color: $bgcolor;
+  border-radius: 32px; //btn_height / 2
+  z-index: 1;
+  //font
+  font-size: 18px;
+  text-align: center;
+  line-height: $btn_heght;
+  color: $txt_color;
+  transition: 0.3s;
+  &::before {
+    position: absolute;
+    right: 10%;
+    transition: 0.3s;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\f054";
+  }
+  &:hover {
+    background-color: $hover_bgcolor;
+    transition: 0.3s;
+    &::before {
+      transition: 0.3s;
+      right: 5%;
+    }
+  }
+  &:active {
+    transition: 0.3s;
+    top: 2px;
+  }
+}

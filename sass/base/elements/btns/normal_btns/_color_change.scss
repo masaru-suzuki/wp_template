@@ -1,0 +1,62 @@
+$btn_color_change_width: 256;
+$btn_color_change_height: 64;
+$btn_color_change_bg_color: $gray;
+$sp_btn_color_change_width: 216;
+$sp_btn_color_change_height: 54;
+
+.btn_color_change {
+  display: inline-block;
+  width: #{$btn_color_change_width}px;
+  height: #{$btn_color_change_height}px;
+  position: relative;
+  border: 0.1px solid $btn_color_change_bg_color;
+  overflow: hidden;
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  z-index: 1;
+  @include mq-down(sm) {
+    width: #{$sp_btn_color_change_width}px;
+    height: #{$sp_btn_color_change_height}px;
+  }
+  &::before {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: -100%;
+    background-color: $btn_color_change_bg_color;
+    -webkit-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+  }
+  &::after {
+    content: "";
+    display: inline-block;
+    width: 190px;
+    height: 8px;
+    background-image: url(images/arrow.png);
+    background-size: contain;
+    position: absolute;
+    left: 50%;
+    bottom: 10px;
+    transform: translateX(-50%);
+    opacity: 0.5;
+    -webkit-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    @include mq-down(sm) {
+      width: 150px;
+      bottom: 5px;
+    }
+  }
+
+  &:hover {
+    color: $black;
+    &::before {
+      left: 0;
+    }
+  }
+}

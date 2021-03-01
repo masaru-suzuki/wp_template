@@ -1,0 +1,31 @@
+@mixin cmn_txt(
+  $ff: Hiragino Maru Gothic ProN,
+  $fz: 18,
+  $ls: 3,
+  $lh: 40,
+  $mfz: 16,
+  $mls: 3,
+  $mlh: 36,
+  $sfz: 13,
+  $sls: 3,
+  $slh: 26
+) {
+  //"游ゴシック体"を後半にも持ってきている
+  font-family: $ff, YuGothic, "游ゴシック体", "游ゴシック", "Yu Gothic", "メイリオ", "Hiragino Kaku Gothic ProN",
+    "Hiragino Sans", sans-serif;
+  color: $black;
+  font-size: #{$fz}px;
+  letter-spacing: #{$ls}px;
+  line-height: #{$lh}px;
+  font-weight: normal;
+  @include mq-down {
+    font-size: #{$mfz}px;
+    line-height: #{$mlh}px;
+    letter-spacing: #{$mls}px;
+  }
+  @include mq-down(sm) {
+    font-size: #{$sfz}px;
+    line-height: #{$slh}px;
+    letter-spacing: #{$sls}px;
+  }
+}

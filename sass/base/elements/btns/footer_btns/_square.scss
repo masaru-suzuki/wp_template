@@ -1,0 +1,62 @@
+$btn_footer_width: 256;
+$btn_footer_height: 64;
+$md_btn_footer_width: 145;
+$md_btn_footer_height: 34;
+
+$bgcolor: $black;
+$txt_color: $white;
+$hover_bgcolor: $white;
+$hover_txt_color: $black;
+
+.btn_footer {
+  position: relative;
+  height: #{$btn_footer_height}px;
+  width: #{$btn_footer_width}px;
+  line-height: #{$btn_footer_height}px;
+  text-align: center;
+  display: inline-block;
+  cursor: pointer;
+  background-color: $bgcolor;
+  color: $txt_color;
+  border: 0.1px solid $txt_color;
+  z-index: 1;
+  transition: 0.3s;
+  @include mq-down {
+    width: #{$md_btn_footer_width}px;
+    height: #{$md_btn_footer_height}px;
+    line-height: #{$md_btn_footer_height}px;
+  }
+  &::before {
+    content: "";
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-image: url(images/next_w.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    right: 11%;
+    top: 52%;
+    transform: translateY(-50%);
+    transition: 0.3s;
+    z-index: 2;
+    @include mq-down {
+      width: 10px;
+      height: 10px;
+    }
+  }
+  &:hover {
+    background-color: $hover_bgcolor;
+    color: $hover_txt_color;
+    transition: 0.3s;
+    &::before {
+      background-image: url(images/next_b.png);
+      transition: 0.3s;
+      right: 5%;
+    }
+  }
+  &:active {
+    transition: 0.3s;
+    top: 2px;
+  }
+}

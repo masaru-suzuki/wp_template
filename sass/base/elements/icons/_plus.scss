@@ -1,0 +1,64 @@
+.icon-plus {
+  position: relative;
+  width: 64px;
+  height: 64px;
+  background: $white;
+  border-radius: 50%;
+  margin-top: 18px; //area-ttlのheightが100pxだから、その調整で(100-64) / 2 =18
+  @include mq-down {
+    width: 40px;
+    height: 40px;
+    margin-top: 12px; //area-ttlのheightが100pxだから、その調整で(64-40) / 2 =12
+  }
+  @include mq-down(sm) {
+    width: 28px;
+    height: 28px;
+    margin-top: 10px; //area-ttlのheightが100pxだから、その調整で(48-28) / 2 =10
+  }
+  &::before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    content: "";
+    display: inline-block;
+    width: 28px;
+    border-top: 5px solid #3e6cb3;
+    transform: translate(-50%, -50%);
+    @include mq-down {
+      width: 20px;
+      border-width: 3px;
+    }
+    @include mq-down(sm) {
+      width: 16px;
+      border-width: 2px;
+    }
+  }
+  &::after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    content: "";
+    display: inline-block;
+    width: 28px;
+    border-top: 5px solid #3e6cb3;
+    @include mq-down {
+      width: 20px;
+      border-width: 3px;
+    }
+    @include mq-down(sm) {
+      width: 16px;
+      border-width: 2px;
+    }
+    transform: translate(-50%, -50%) rotate(90deg);
+    // transform: translate(-50%, -50%);
+    transition: 0.3s;
+  }
+
+  &.active {
+    &::after {
+      transform: translate(-50%, -50%) rotate(0deg);
+      // transform: translate(-50%, -50%) rotate(90deg);
+      // transition: 0.3s;
+    }
+  }
+}

@@ -1,0 +1,20 @@
+.tag {
+  position: absolute;
+  //positionはそれぞれで指定
+  background-color: $whiteblue;
+  display: inline-block;
+  padding: 8px 24px 7px 16px;
+  color: $white;
+  border-radius: 0 100vh 100vh 0;
+  z-index: 1; // マウスホバー時、画像が拡大した際にタグよりも画像が上にきてしまうため、z-indexを指定。
+  &::before {
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 0;
+    height: 0;
+    content: "";
+    border-top: 10px solid $darkblue;
+    border-left: 10px solid transparent;
+  }
+}

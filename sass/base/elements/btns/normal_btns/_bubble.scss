@@ -1,0 +1,133 @@
+div {
+  content: "btn";
+}
+
+/*ボタン設定*/
+$btn_font-family: "游ゴシック体", "游ゴシック", "Yu Gothic", "メイリオ", "Hiragino Kaku Gothic ProN", "Hiragino Sans",
+  sans-serif;
+$btn_width: 330px;
+$btn_font_size: 31px;
+$btn_font_wight: bold;
+$btn_line_heght: 35px;
+$btn_letter_spacing: 3.1px;
+$btn_border_radius: 10px;
+$btn_color: #fff;
+$btn_whiteolor: #c80032;
+$btn_padding: 0.25rem 2rem 1.5rem 3.5rem;
+$btn_box_shadow: 3px 3px 0 #222;
+/*hover設定*/
+$btn_hover_text_color: #c80032;
+$btn_hover_whiteolor: #fff;
+$btn_hover_box_shadow: 3px 3px 0 #222;
+$btn_hover_border: 2px solid #c80032;
+/*ボタン設定*/
+$bubble_position_top: -20px;
+$bubble_width: 330px;
+$bubble_font_size: 18px;
+$bubble_font_wight: bold;
+$bubble_line_heght: 35px;
+$bubble_letter_spacing: 0.3px;
+$bubble_border_radius: 0px;
+$bubble_color: #c80032;
+$bubble_whiteolor: #fff;
+$bubble_padding: 0 3px;
+$bubble_border: 3px solid $bubble_color;
+$bubble_text_shadow: 0.2px 0.2px #222;
+// // $bubble_box_shadow: 3px 3px 0 #000;
+
+.btn_wrap {
+  margin: 30px 0;
+  font-family: $btn_font-family;
+  text-align: center;
+  @include mq-down(sm) {
+    margin: 15px 0;
+  }
+  a {
+    &.btn {
+      font-size: $btn_font_size;
+      font-weight: $btn_font_wight;
+      line-height: $btn_line_heght;
+      letter-spacing: $btn_letter_spacing;
+      color: $btn_color;
+      background: $btn_whiteolor;
+      border-radius: $btn_border_radius;
+      padding: $btn_padding;
+      box-shadow: $btn_box_shadow;
+      position: relative;
+      display: inline-block;
+      cursor: pointer;
+      user-select: none;
+      transition: all 0.3s;
+      text-align: center;
+      vertical-align: middle;
+      text-decoration: none;
+      @include mq-down(sm) {
+        height: 53px;
+        width: 260px;
+        font-size: 19px;
+        font-weight: 500;
+        line-height: 15px;
+        letter-spacing: 1px;
+        padding: 10px 0 20px;
+      }
+      span {
+        font-size: $bubble_font_size;
+        font-weight: $bubble_font_wight;
+        line-height: $bubble_line_heght;
+        letter-spacing: $bubble_letter_spacing;
+        color: $bubble_color;
+        text-shadow: $bubble_text_shadow;
+        position: absolute;
+        width: $btn_width;
+        padding: $bubble_padding;
+        border: $bubble_border;
+        border-radius: $bubble_border_radius;
+        background: $bubble_whiteolor;
+        top: $bubble_position_top;
+        left: calc(50% - #{$btn_width} / 2);
+        display: block;
+        @include mq-down(sm) {
+          font-size: 11px;
+          letter-spacing: 1px;
+          line-height: 21px;
+          padding: 0;
+          width: 200px;
+          padding: 0;
+          top: -10px;
+          left: 50%;
+          transform: translateX(-50%);
+          border: 1px solid #c80032;
+        }
+        &:before,
+        &:after {
+          position: absolute;
+          left: calc(50% - #{$btn_border_radius});
+          content: "";
+        }
+
+        &:before {
+          bottom: -10px;
+          border-width: 10px 10px 0 10px;
+          border-style: solid;
+          border-color: $bubble_color transparent transparent transparent;
+        }
+
+        &:after {
+          bottom: -7px;
+          border-width: 10px 10px 0 10px;
+          border-style: solid;
+          border-color: #fff transparent transparent transparent;
+        }
+      }
+    }
+
+    &:hover {
+      // -webkit-transform: translate(0, 3px);
+      // transform: translate(0, 3px);
+      color: $btn_hover_text_color;
+      background: $btn_hover_whiteolor;
+      // border: $btn_hover_border;  // borderを先に入れておく
+      box-shadow: $btn_hover_box_shadow;
+    }
+  }
+}

@@ -1,0 +1,33 @@
+// @import "_responsive.scss";
+
+//pcのfullsizeを1920pxと想定
+@mixin wf {
+  width: 100%;
+  margin: 0 auto;
+}
+
+@mixin w1 {
+  width: 100%;
+  max-width: 1660px; //左右に126px
+  margin: 0 auto;
+}
+@mixin w2 {
+  width: 100%;
+  max-width: 1472px; //左右に256px
+  margin: 0 auto;
+}
+@mixin w3 {
+  max-width: 1024px;
+  width: 100%;
+  margin: 0 auto;
+}
+@mixin w4 {
+  max-width: 768px;
+  width: 100%;
+  margin: 0 auto;
+}
+@mixin w5 {
+  width: 100%;
+  max-width: 512px;
+  margin: 0 auto;
+}

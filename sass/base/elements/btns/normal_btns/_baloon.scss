@@ -1,0 +1,139 @@
+div {
+  content: "btn_baloon";
+}
+
+/*ボタン設定*/
+$btn_font-family: "游ゴシック体", "游ゴシック", "Yu Gothic", "メイリオ", "Hiragino Kaku Gothic ProN", "Hiragino Sans",
+  sans-serif;
+$btn_width: 424px;
+$btn_font_size: 26px;
+$btn_font_wight: bold;
+$btn_line_heght: 32px;
+$btn_letter_spacing: 2.6px;
+$btn_border_radius: 10px;
+$btn_color: #fff;
+$btn_whiteolor: #ff5600;
+$btn_padding: 20px 20px;
+$btn_box_shadow: 3px 3px 0 #222;
+/*hover設定*/
+$btn_hover_text_color: #ff5600;
+$btn_hover_whiteolor: #fff;
+$btn_hover_box_shadow: 3px 3px 0 #222; // 訂正前
+// $btn_hover_border: 2px solid #ff5600;
+$btn_hover_border: unset;
+/*ボタン設定*/
+$bubble_position_top: -20px;
+$bubble_width: 330px;
+$bubble_font_size: 18px;
+$bubble_font_wight: bold;
+$bubble_line_heght: 35px;
+$bubble_letter_spacing: 0.3px;
+$bubble_border_radius: 0px;
+$bubble_color: #ff5600;
+$bubble_whiteolor: #fff;
+$bubble_padding: 0 3px;
+$bubble_border: 3px solid $bubble_color;
+$bubble_text_shadow: 0.2px 0.2px #222;
+// // $bubble_box_shadow: 3px 3px 0 #000;
+
+.btn_baloon {
+  margin: 150px 0 30px 0;
+  font-family: $btn_font-family;
+  text-align: center;
+  position: relative;
+  // width: $btn_width;
+  // スコープがきかず、baloon_1とした
+  @include mq-down(sm) {
+    margin-bottom: 10px;
+  }
+  .baloon_1 {
+    position: absolute;
+    display: inline-block;
+    top: -136px;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 1.5em 0;
+    padding: 19px 5px;
+    width: 92px;
+    height: 92px;
+    line-height: 26px;
+    text-align: center;
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    background: #388949;
+    border-radius: 50%;
+    box-sizing: border-box;
+    z-index: 3;
+    @include mq-down {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    @include mq-down(sm) {
+      width: 72px;
+      height: 72px;
+      font-size: 15px;
+      padding: 19px 5px;
+      line-height: 21pcx;
+      top: -105px;
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: -25px;
+      left: 50%;
+      margin-left: -15px;
+      border: 15px solid transparent;
+      border-top: 15px solid #388949;
+      z-index: 0;
+      @include mq-down(sm) {
+        bottom: -7px;
+        border: 10px solid transparent;
+        margin-left: -8px;
+        border-top: 10px solid #388949;
+        border-width: 17px 9.5px 0 9.5px;
+        border-color: #388949 transparent transparent transparent;
+      }
+    }
+  }
+  a {
+    &.btn {
+      font-size: $btn_font_size;
+      font-weight: $btn_font_wight;
+      line-height: $btn_line_heght;
+      letter-spacing: $btn_letter_spacing;
+      color: $btn_color;
+      width: $btn_width;
+      background: $btn_whiteolor;
+      border-radius: $btn_border_radius;
+      padding: $btn_padding;
+      box-shadow: $btn_box_shadow;
+      position: relative;
+      display: inline-block;
+      cursor: pointer;
+      user-select: none;
+      transition: all 0.3s;
+      text-align: center;
+      vertical-align: middle;
+      text-decoration: none;
+      @include mq-down(sm) {
+        height: 53px;
+        width: 260px;
+        font-size: 17px;
+        font-weight: 500;
+        line-height: 21px;
+        letter-spacing: 1px;
+        padding: 5px;
+      }
+    }
+
+    &:hover {
+      -webkit-transform: translate(0, 3px);
+      transform: translate(0, 3px);
+      color: $btn_hover_text_color;
+      background: $btn_hover_whiteolor;
+      border: $btn_hover_border;
+      box-shadow: $btn_hover_box_shadow;
+    }
+  }
+}

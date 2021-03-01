@@ -1,0 +1,30 @@
+//<a href="#" class="arrow sample1-1">共通のHTML</a>
+
+.arrow {
+  position: relative;
+  &::before,
+  &::after {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    content: "";
+    vertical-align: middle;
+  }
+}
+.arrow-next {
+  &::before {
+    left: 3px;
+    width: 7px;
+    height: 7px;
+    border-top: 2px solid $white;
+    border-right: 2px solid $white;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    //hover時のエフェクト
+    &.hover {
+      left: 30px;
+    }
+  }
+}

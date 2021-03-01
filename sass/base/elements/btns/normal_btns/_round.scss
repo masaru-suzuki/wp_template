@@ -1,0 +1,156 @@
+$bgcolor: $whiteblue;
+$txt_color: $white;
+$hover_bgcolor: $grayblue;
+$btn_width: 288px;
+$btn_heght: 64px;
+$sp_btn_width: 196px;
+$sp_btn_heght: 42px;
+$sp_confirm_btn_width: 148px;
+$sp_confirm_btn_height: 42px;
+
+.btn-round {
+  text-align: center;
+  display: block;
+  height: $btn_heght;
+  width: $btn_width;
+  cursor: pointer;
+  position: relative;
+  background-color: $bgcolor;
+  border-radius: 32px; //btn_height / 2
+  //font
+  font-size: 18px;
+  text-align: center;
+  line-height: $btn_heght;
+  color: $txt_color;
+  transition: 0.3s;
+  // margin-top: 32px;
+
+  @include mq-down() {
+    width: $sp_btn_width;
+    height: $sp_btn_heght;
+    line-height: $sp_btn_heght;
+    font-size: 15px;
+    letter-spacing: 3px;
+  }
+  @include mq-down(sm) {
+    margin: 0 auto;
+    &.orange,
+    &.clear {
+      width: $sp_confirm_btn_width;
+      height: $sp_confirm_btn_height;
+    }
+    &.wide {
+      width: $sp_btn_width;
+      height: $sp_btn_heght;
+    }
+  }
+  &.orange {
+    background-color: $orange;
+  }
+  &.clear {
+    background-color: unset;
+    color: $bgcolor;
+    border: 1px solid $bgcolor;
+    padding-left: 12px;
+  }
+  &.grayblue {
+    background-color: $grayblue;
+  }
+  &.darkblue {
+    background-color: $darkblue;
+  }
+  &::before {
+    position: absolute;
+    right: 10%;
+    transition: 0.3s;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\f054";
+  }
+  &:hover {
+    background-color: $hover_bgcolor;
+    transition: 0.3s;
+    &.clear {
+      background-color: $bgcolor;
+      color: $txt_color;
+      border: 1px solid $bgcolor;
+    }
+    &.darkblue,
+    &.grayblue {
+      background-color: $black;
+      transition: 0.3s;
+    }
+    &::before {
+      transition: 0.3s;
+      right: 5%;
+    }
+  }
+  &:active {
+    transition: 0.3s;
+    top: 2px;
+  }
+}
+
+/*btnがinput要素だった場合の処理*/
+.input-btn {
+  position: relative;
+  margin: 0 auto;
+  &::before {
+    position: absolute;
+    right: 10%;
+    top: 51%;
+    transform: translateY(-50%);
+    transition: 0.3s;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\f054";
+    z-index: 1;
+  }
+  &.clear {
+    transition: 0.3s;
+    &::before {
+      transition: 0.3s;
+      color: $whiteblue;
+    }
+  }
+  &.orange {
+    transition: 0.3s;
+    &::before {
+      transition: 0.3s;
+      color: $white;
+    }
+  }
+  &:hover {
+    transition: 0.3s;
+    &.clear {
+      transition: 0.3s;
+      &::before {
+        transition: 0.3s;
+        color: $white;
+      }
+    }
+
+    &::before {
+      transition: 0.3s;
+      right: 5%;
+    }
+  }
+
+  //戻るボタンの設定
+  &.left-arrow {
+    &::before {
+      position: absolute;
+      top: 55%;
+      left: 12%;
+      width: 10px;
+      transition: 0.3s;
+      transform: translateY(-50%) rotateY(180deg);
+    }
+    &:hover {
+      &::before {
+        transition: 0.3s;
+        left: 8%;
+      }
+    }
+  }
+}

@@ -1,0 +1,147 @@
+.mw_wp_form_input {
+  .contact-form {
+    max-width: 900px;
+    width: 100%;
+    padding: 0 16px;
+    margin: 0 auto;
+    @include mq-down {
+      max-width: 500px;
+    }
+    .form-item {
+      width: 100%;
+      display: flex;
+      margin-bottom: 24px;
+      @include mq-down {
+        flex-direction: column;
+        br {
+          display: none;
+        }
+      }
+      label {
+        display: table-cell;
+        width: 30%;
+        text-align: right;
+        margin: 0 32px 0 15px; //input,txtareaの左ラインを合わせる
+        padding-top: 8px; //input,txtareaのpadding-topと同じにする
+        @include mq-down {
+          width: 100%;
+          text-align: left;
+        }
+        .haveto {
+          margin-right: 4px;
+          margin-left: -18px;
+        }
+      }
+      input,
+      textarea {
+        display: table-cell;
+        // background-color: $whitegray;
+        width: 70%;
+        padding: 8px 0 6px 13px;
+        letter-spacing: 1px;
+        @include mq-down {
+          width: 100%;
+        }
+      }
+    }
+    p {
+      display: block;
+      width: calc(70% - 40px / 2);
+      margin: 0 0 24px auto; //margin-topとbottomはform-itemのmargin-bottomに合わせる
+      @include mq-down {
+        width: 100%;
+      }
+      @include mq-down(sm) {
+        margin: 0 0 16px auto;
+      }
+      .error {
+        display: block;
+        margin: -24px 0 0 13px; //input,txtareaとのmargin-leftを揃える
+        margin-top: -24px;
+      }
+      .mwform-checkbox-field-text {
+        margin-left: 24px;
+        &::before {
+          content: "✳︎";
+          font-weight: bold;
+          color: $red;
+          margin-right: 8px;
+        }
+      }
+    }
+    .check-privacy-policy {
+      width: 100%;
+      width: calc(70% - 40px / 2);
+      margin: 0 0 32px auto;
+      display: flex;
+      @include mq-down {
+        width: 100%;
+      }
+      .mwform-checkbox-field {
+        width: 30px;
+        height: 30px;
+      }
+      .agreement {
+        width: 24px;
+        height: 24px;
+      }
+      p {
+        display: none;
+        &:last-child {
+          display: block;
+          margin: 0 0 32px 32px;
+          &::before {
+            content: "✳︎";
+            color: $red;
+            margin-right: 8px;
+          }
+        }
+      }
+    }
+  }
+  .btn-box {
+    position: unset;
+    margin: 0 auto;
+    .clear {
+      display: none;
+    }
+  }
+}
+
+/* 入力エラーのスタイル */
+input[type="text"]:required,
+input[type="email"]:required,
+// input[type="email"]:invalid,
+// input[type="tel"]:invalid,
+textarea:required {
+  color: $darkgray;
+  border: 1px solid #ffe6e6;
+  background-color: #fff5f6;
+}
+
+/* 入力値が正常な時のスタイル */
+input[type="text"]:valid,
+input[type="email"]:valid,
+textarea:valid {
+  color: $black;
+  border-color: $gray;
+  background: #e8f0ff; //自動入力時のinputの色にあわせた
+}
+/*必須項目のbgcを変更*/
+.target_email {
+  // background-color: #dec8d5 !important;
+  // border: 1px solid $whiteblue;
+}
+
+/*自動入力時にinputの背景色が変わらないよう*/
+// @keyframes onAutoFillStart {
+//   from {
+//   }
+//   to {
+//   }
+// }
+
+// input:-webkit-autofill {
+//   animation-name: onAutoFillStart;
+//   transition: background-color 50000s ease-in-out 0s;
+// }
