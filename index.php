@@ -50,7 +50,6 @@ get_header();
 
   endif;
   ?>
-  <h1>テスト3</h1>
   <img style="width: 400px" src="<?php bloginfo('template_directory'); ?>/dist/img/news-mv.jpg" alt="">
 </main><!-- #main -->
 <?php
